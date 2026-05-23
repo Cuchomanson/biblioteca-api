@@ -1,0 +1,29 @@
+name: Establecer el nombre
+
+on: #Bajo que condiciones se va a ejecutar este archivo. Ej, cuando se hagan cambios en el repositorio, mediante un botón, tras un PR..
+  workflow_dispatch: # comentario
+  push: #Cuando nuestro proyecto reciba cambios ejecutamos
+      branches: #Que ramas se deben actualizar para ejecutar el workflow_dispatch
+        - main
+      paths: #Que rutas que sean modificadas del repo implican correr el proceso, por ejemplo un archivo de dentro de BibliotecaAPI
+        - 'BibliotecaAPI/**'  #Cualquier cosa que haya dentro de la carpeta
+        - 'BibliotecaAPITests/**'
+        - '.github/workflows/hola-mundo.yml' #Cuando se modifica el workflow
+    pull_request: #Que se ejecute cuando se haga una PR a la rama main
+      branches:
+        - main
+		
+jobs: #Acciones que se vana a ejecutar, es decir, lo que queremos hacer
+    saludar:
+      runs-on: ubuntu-latest #En que ambiente queremos que se ejecute
+      steps:
+        - name: Muestra mensaje hola mundo
+          run: echo "hola mundo, Cucho!!"
+					  
+        - name: Checkout #Tarea predefinida que toma el codigo del repo y descargarlo aqui para poder usarlo (compilar o correr pruebas automaticas)
+          uses: actions/checkout@v4.2.2
+					  
+        - name: Listar los archivos del repo
+          run: |
+            echo "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
+            tree 
