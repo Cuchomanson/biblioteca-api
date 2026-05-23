@@ -1,6 +1,6 @@
 name: Establecer el nombre
 
-on: #Bajo que condiciones se va a ejecutar este archivo. Ej, cuando se hagan cambios en el repositorio, mediante un botón, tras un PR..
+on:
   workflow_dispatch: # comentario
   push: #Cuando nuestro proyecto reciba cambios ejecutamos
       branches: #Que ramas se deben actualizar para ejecutar el workflow_dispatch
