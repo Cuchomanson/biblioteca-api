@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Client/">
+    <File Path="ejemplo-cors.html" />
+  </Folder>
+  <Project Path="BibliotecaAPI/BibliotecaAPI.csproj" />
+</Solution>
