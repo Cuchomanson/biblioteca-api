@@ -1,12 +1,12 @@
-name: Establecer el nombre
+name: Hola mundo
 
 on:
-  workflow_dispatch: # comentario
+  workflow_dispatch: # ejecución manual
   push: #Cuando nuestro proyecto reciba cambios ejecutamos
-      branches: #Que ramas se deben actualizar para ejecutar el workflow_dispatch
-        - main
-      paths: #Que rutas que sean modificadas del repo implican correr el proceso, por ejemplo un archivo de dentro de BibliotecaAPI
-        - 'BibliotecaAPI/**'  #Cualquier cosa que haya dentro de la carpeta
+  	branches: #Que ramas se deben actualizar para ejecutar el workflow_dispatch
+		- main
+	paths: #Que rutas que sean modificadas del repo implican correr el proceso, por ejemplo un archivo de dentro de BibliotecaAPI
+		- 'BibliotecaAPI/**'  #Cualquier cosa que haya dentro de la carpeta
         - 'BibliotecaAPITests/**'
         - '.github/workflows/hola-mundo.yml' #Cuando se modifica el workflow
     pull_request: #Que se ejecute cuando se haga una PR a la rama main
@@ -26,4 +26,4 @@ jobs: #Acciones que se vana a ejecutar, es decir, lo que queremos hacer
         - name: Listar los archivos del repo
           run: |
             echo "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
-            tree 
+            tree
